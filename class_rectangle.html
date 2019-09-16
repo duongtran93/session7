@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" width="1000px" height="500px" style="border: 1px solid #d3d3d3"></canvas>
+<div id="result1"></div>
+<div id="result2"></div>
+
+<script>
+    function Rectangle(width, height) {
+        this.width = width;
+        this.height = height;
+        this.acreage = function () {
+            return this.width * this.height;
+        };
+        this.perimeter = function () {
+            return (this.width + this.height) / 2;
+        };
+        this.rectangle = function () {
+            let ctx = document.getElementById("myCanvas").getContext("2d");
+            ctx.strokeRect(400, 300, this.width, this.height);
+        }
+    }
+
+    let w = parseInt(prompt("Nhập chiều rông: "));
+    let h = parseInt(prompt("Nhập chiều dài: "));
+    let rectang = new Rectangle(w, h);
+    rectang.rectangle();
+
+    let acre = rectang.acreage();
+    document.getElementById("result1").innerHTML = "Diện tích hình chữ nhật là: " + acre;
+    let peri = rectang.perimeter();
+    document.getElementById("result2").innerHTML = "Chu vi hình chữ nhật là: " + peri;
+</script>
+</body>
+</html>
